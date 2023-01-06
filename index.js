@@ -6,11 +6,11 @@ const cors = require('cors');
 const router = require('./router');
 
 const app = express();
+app.use(cors());
+app.use(router);
 const server = http.createServer(app);
 const io = socketio(server);
 
-app.use(cors());
-app.use(router);
 
 
 let users = [];
